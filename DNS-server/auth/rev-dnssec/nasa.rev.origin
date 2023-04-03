@@ -1,0 +1,26 @@
+$TTL	86400
+$ORIGIN 9.168.192.in-addr.arpa.
+@	IN	SOA	ns1.9.nasa.	admin.ns1.9.nasa. (
+			20230403	; Serial
+			604800		; Refresh
+			86400		; Retry
+			2419200		; Expire
+			86400 )		; Negative Cache TTL
+;
+;
+
+ 	IN	NS	ns1.9.nasa.
+
+53	IN	PTR	ns1.9.nasa.
+153	IN	PTR	dns.9.nasa.
+	
+; This is a zone-signing key, keyid 12437, for 9.168.192.in-addr.arpa.
+; Created: 20230402215506 (Mon Apr  3 05:55:06 2023)
+; Publish: 20230402215506 (Mon Apr  3 05:55:06 2023)
+; Activate: 20230402215506 (Mon Apr  3 05:55:06 2023)
+9.168.192.in-addr.arpa. IN DNSKEY 256 3 13 1ohXG4Qexa5kltL937QEe6F1E5WWOY6BBfqwoaAIcKc8Obz3V547EsMt kaf+HcNry4fEEwBPeIUkbDQFDCPo+w==
+; This is a key-signing key, keyid 43971, for 9.168.192.in-addr.arpa.
+; Created: 20230402215506 (Mon Apr  3 05:55:06 2023)
+; Publish: 20230402215506 (Mon Apr  3 05:55:06 2023)
+; Activate: 20230402215506 (Mon Apr  3 05:55:06 2023)
+9.168.192.in-addr.arpa. IN DNSKEY 257 3 13 49m03163zh1v8WPvfyAr4F8b4MaGbwQ8wj0EKRe/Jfg5qu68hWxwQpFA MbsDn0TrnFS2l7K2B3U7lUoY/37YuA==
