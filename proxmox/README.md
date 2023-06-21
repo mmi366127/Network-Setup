@@ -5,7 +5,6 @@
 - edit grub configuration to enable IOMMU
 
 ````=bash
-
 # backup old grub
 mv /etc/default/grub /etc/default/grub.bak
 
@@ -14,7 +13,6 @@ mv ./grub /etc/default/grub
 
 # update grub
 update-grub
-
 ````
 
 - add modules to ``/etc/modules``
