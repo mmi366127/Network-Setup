@@ -29,7 +29,7 @@ zone "255.in-addr.arpa" {
 
 zone "loli" {
 	type master;
-	file "/etc/bind/loli.host";
+	file "/etc/bind/loli.hosts";
 };
 
 zone "88.168.192.in-addr.arpa" {
