@@ -1,0 +1,11 @@
+[Unit]
+Description=network setup sript.
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/network-setup-start.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
