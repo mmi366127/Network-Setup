@@ -1,3 +1,1 @@
-ID=9
-sudo docker run --rm -d --net=dns-network --ip 192.168.${ID}.53 auth-dns 
-
+sudo docker run --rm -d --net=dns-server --ip 192.168.88.53 dns-server
