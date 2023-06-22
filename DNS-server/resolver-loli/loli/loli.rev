@@ -1,0 +1,18 @@
+$TTL    86400
+$ORIGIN 88.168.192.in-addr.arpa.
+@       IN      SOA     ns.loli.        admin.ns.loli. (
+                        20230403        ; Serial
+                        604800          ; Refresh
+                        86400           ; Retry
+                        2419200         ; Expire
+                        86400 )         ; Negative Cache TTL
+;
+;
+
+        IN      NS      ns.loli.
+
+53      IN      PTR     ns.loli.
+53      IN      PTR     dns.loli.
+25      IN      PTR     ldap.loli.
+69      IN      PTR     roxy.loli.
+38      IN      PTR     arona.loli.

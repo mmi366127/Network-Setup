@@ -1,0 +1,21 @@
+$TTL    86400
+$ORIGIN loli.
+@       IN      SOA     ns.loli.        admin.ns.loli. (
+                                20230403        ; Serial
+                                604800          ; Refresh
+                                86400           ; Retry
+                                2419200         ; Expire
+                                86400 )         ; Negative Cache TTL
+;
+; Name servers
+        IN      NS      ns.loli.
+
+; A records for name servers
+ns      IN      A       192.168.88.53
+
+; A records for other hosts
+roxy    IN      A       192.168.88.69
+ldap    IN      A       192.168.88.25
+arona   IN      A       192.168.88.38
+dns     IN      A       192.168.88.53
+nas     IN      A       192.168.88.21
