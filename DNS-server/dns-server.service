@@ -5,8 +5,8 @@ After=docker.service
 
 [Service]
 Restart=always
-ExecStart=/usr/bin/docker run --rm -d --net=dns-server --ip 192.168.88.53 dns-server 
-ExecStop=/usr/bin/docker stop $(sudo docker ps -a -q  --filter ancestor=dns-server)
+ExecStart=/usr/bin/docker run --rm --net=dns-server --ip 192.168.88.53 dns-server 
+ExecStop=/usr/bin/docker stop $(/usr/bin/docker ps -a -q  --filter ancestor=dns-server)
 
 [Install]
 WantedBy=default.target
