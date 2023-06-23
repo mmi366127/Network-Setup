@@ -10,8 +10,8 @@
 ````=bash
 dpkg-reconfigure slapd
 > no
-> DNS: <ID>.nasa
-> Organization: <ID>.nasa
+> DNS: loli
+> Organization: loli
 > Administrator password
 > Confirm password
 > Do you want the database to be removed when slapd is purged? yes
@@ -114,5 +114,52 @@ ldapsearch -H ldap://ldap.loli -x -LLL
 
 ## Create User
 
+- Create ssh object class
 
+````=bash
+# Add ssh object class to schema
+ldapadd -Y EXTERNAL -H ldapi:///
+dn: cn={4}opensshLPK,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: {4}opensshLPK
+olcAttributeTypes: ( 1.3.6.1.4.1.24552.500.1.1.1.13 NAME 'sshPublicKey' DESC 'OpenSSH Public key' EQUALITY octetStringMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.40 )
+olcObjectClasses: ( 1.3.6.1.4.1.24552.500.1.1.2.0 NAME 'ldapPublicKey' SUP top AUXILIARY DESC 'OpenSSH LPK objectclass' MUST uid MAY sshPublicKey )
 
+# set ACL for 
+ldapmodify -Y EXTERNAL -H ldapi:///
+dn: olcDatabase={1}mdb,cn=config
+changetype: modify
+add: olcAccess
+olcAccess: {2}to attrs=sshPublicKey by self write by * read
+````
+
+- Create ``ou=People`` and ``ou=Group``
+
+````=bash
+ldapadd -D "cn=admin,dc=loli" -W -ZZ
+
+dn: ou=Group,dc=loli
+objectclass: organizationalUnit
+ou: Group
+
+dn: ou=People,dc=loli
+objectclass: organizationalUnit
+ou: People
+````
+
+- add user
+
+````=bash
+dn: uid=<userName>,ou=People,dc=loli
+objectclass: account
+objectclass: posixAccount
+objectclass: shadowAccount
+objectclass: ldapPublicKey
+cn: <userName>
+uid: <userName>
+uidNumber: <uid>
+gidNumber: <gid>
+homeDirectory: /home/<userName>
+userPassword: <password>
+sshPublicKey: <ssh-key>
+````

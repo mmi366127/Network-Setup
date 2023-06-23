@@ -1,0 +1,10 @@
+dn: cn=config
+changetype: modify
+add: olcTLSCACertificateFile
+olcTLSCACertificateFile: /etc/ssl/private/ca.cert
+-
+add: olcTLSCertificateFile
+olcTLSCertificateFile: /etc/ssl/private/server.cert
+-
+add: olcTLSCertificateKeyFile
+olcTLSCertificateKeyFile: /etc/ssl/private/server.key
