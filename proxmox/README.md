@@ -45,11 +45,11 @@ echo "blacklist nvidia" >> /etc/modprobe.d/blacklist.conf
 
 - output the vendor ID(s) of the devices
 ````
-replace the device identifier (01:00) as needed
+#replace the device identifier (01:00) if needed
 lspci -n -s 01:00
 ````
 
-- replace the vendor ids from the output of the previous step as needed
+- replace the vendor ids from the output of the previous step if needed
 ````
 echo "options vfio-pci ids=10de:2504,10de:228e disable_vga=1" > /etc/modprobe.d/vfio.conf
 # update initramfs
